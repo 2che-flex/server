@@ -1,13 +1,26 @@
 const { User } = require('../models/')
-
+const { generateToken } = require('../helpers/useJwt')
+const { comparePassword } = require('../helpers/useBcrypt')
 class UserController {
 
   static async getUser(req, res, next) {
     const { username, password } = req.body
+    
     try {
       const user = await User.findOne({where: { username }})
-      res.status(200).json({user})
-      
+      if (user) {
+        const thisPasword = comparePassword(password, user.password)
+
+        if (thisPasword) { 
+          const token  = generateToken({ id: user.id, username: user.username })
+
+          res.status(200).json({ token })
+        } else {
+          console.log({ message: "Invalid Username / Password" })
+        }
+      } else {
+        console.log({ message: "Invalid Username / Password" })
+      }
     } catch (error) {
       console.log(error);
     }
@@ -23,8 +36,6 @@ class UserController {
     } catch (error) {
       console.log(error);
     }
-
-
   }
 
 }

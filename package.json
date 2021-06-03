@@ -19,10 +19,12 @@
   "homepage": "https://github.com/2che-flex/server#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.6.0",
     "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
   }
 }
