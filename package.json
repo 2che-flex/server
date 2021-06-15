@@ -4,7 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:create:test": "NODE_ENV=test sequelize db:create",
+    "db:migrate:test": "NODE_ENV=test sequelize db:migrate",
+    "db:undo:migrate:test": "NODE_ENV=test sequelize db:migrate:undo:all",
+    "db:seed:test": "NODE_ENV=test sequelize db:seed:all",
+    "db:create:dev": "NODE_ENV=development sequelize db:create",
+    "db:migrate:dev": "NODE_ENV=development sequelize db:migrate",
+    "db:undo:migrate:dev": "NODE_ENV=development sequelize db:migrate:undo:all",
+    "db:seed:dev": "NODE_ENV=development sequelize db:seed:all",
+    "test": "NODE_ENV=test npx jest --detectOpenHandles --forceExit --runInBand",
+    "dev": "NODE_ENV=development nodemon ./bin/http.js",
+    "start": "node ./bin/http.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +29,7 @@
   "homepage": "https://github.com/2che-flex/server#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.6.0",
