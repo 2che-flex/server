@@ -4,7 +4,12 @@ class WarehouseControllers {
 
   static async fetchImages(req, res, next) {
     try {
-      const images = await Warehouse.findAll()
+      const images = await Warehouse.findAll(
+        {
+          order: [
+            ['id', 'DESC'],
+          ]
+        })
       res.status(200).json({images})
       
     } catch (error) {
@@ -15,7 +20,7 @@ class WarehouseControllers {
   static async inputImage(req, res, next) {
     const { title, discription, url } = req.body
     try {
-      const image = await Warehouse.create()
+      const image = await Warehouse.create({ title, discription, url })
 
       res.status(201).json(image)
 
@@ -26,11 +31,11 @@ class WarehouseControllers {
   }
 
   static async updateImage(req, res, next) {
-    const { title, name, url } = req.body
+    const { title, discription, url } = req.body
     const { id } = req.params
     try {
 
-      await Warehouse.update({ title, name, url }, { where: { id } })
+      await Warehouse.update({ title, discription, url }, { where: { id } })
 
       res.status(200).json({ message : 'Successfully update image' })
       
