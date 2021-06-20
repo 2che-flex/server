@@ -27,7 +27,6 @@ class WarehouseControllers {
     } catch (error) {
       next(error);
     }
-
   }
 
   static async updateImage(req, res, next) {
@@ -42,7 +41,6 @@ class WarehouseControllers {
     } catch (error) {
       next(error);    
     }
-
   }
 
   static async deleteImage(req, res, next) {
@@ -56,7 +54,6 @@ class WarehouseControllers {
     } catch (error) {
       next(error);      
     }
-
   }
 
 }
