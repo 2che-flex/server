@@ -5,8 +5,8 @@ route.get('/', WarehouseController.fetchImages)
 
 route.post('/', WarehouseController.inputImage)
 
-route.put('/', WarehouseController.updateImage)
+route.put('/:id', WarehouseController.updateImage)
 
-route.delete('/', WarehouseController.deleteImage)
+route.delete('/:id', WarehouseController.deleteImage)
 
 module.exports = route

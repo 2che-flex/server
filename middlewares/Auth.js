@@ -13,18 +13,18 @@ const authenticate = async (req, res, next) => {
       
         next()
       } else {
-        console.log({ code : 401,
+        next({ code : 403,
           message : 'Unauthorized Token'
         })  
       }
     } else {
-      console.log({ code : 401,
+      next({ code : 403,
         message : 'Invalid Token'
       })
     }
 
   } catch (error) {
-    
+    next(error)
   }
 }
 

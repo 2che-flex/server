@@ -16,25 +16,35 @@ class UserController {
 
           res.status(200).json({ token })
         } else {
-          console.log({ message: "Invalid Username / Password" })
+          next({ message: "Invalid Username / Password", code: 401 })
         }
       } else {
-        console.log({ message: "Invalid Username / Password" })
+        next({ message: "Invalid Username / Password", code: 401 })
       }
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
   static async createUserAdmin(req, res, next) {
     const { username, email, password } = req.body
     try {
-      console.log({ username, email, password });
       const user = await User.create({ username, email, password })
       
       res.status(201).json(user)
     } catch (error) {
-      console.log(error);
+      next(error);
+    }
+  }
+
+  static async updateUserAdmin(req, res, next) {
+    const { email, password } = req.body
+    try {
+      const user = await User.create({ username, email, password })
+      
+      res.status(201).json(user)
+    } catch (error) {
+      next(error);
     }
   }
 

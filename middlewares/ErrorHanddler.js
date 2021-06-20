@@ -6,8 +6,8 @@ module.exports = (err, req, res, next) => {
     res.status(400).json({message: err.message})
   } else if(err.code === 401){
     res.status(401).json({message: err.message})
-  } else if(err.code === 402) {
-    res.status(402).json({message: err.message})
+  } else if(err.code === 403) {
+    res.status(403).json({message: err.message})
   } else if(err.code === 404) {
     res.status(404).json({message: err.message})
   } else {

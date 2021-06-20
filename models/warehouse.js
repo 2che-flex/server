@@ -14,9 +14,33 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Warehouse.init({
-    name: DataTypes.STRING,
-    title: DataTypes.STRING,
-    url: DataTypes.STRING
+    title: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Name Item Cannot Empty'
+        }
+      }
+    },
+    description: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Description Item Cannot Empty'
+        }
+      }
+    },
+    url: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Url Item cannot empty'
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Warehouse',

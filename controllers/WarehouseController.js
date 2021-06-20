@@ -8,25 +8,24 @@ class WarehouseControllers {
       res.status(200).json({images})
       
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
   static async inputImage(req, res, next) {
-    const { title, name, url } = req.body
+    const { title, discription, url } = req.body
     try {
       const image = await Warehouse.create()
 
       res.status(201).json(image)
 
     } catch (error) {
-      console.log(error);
+      next(error);
     }
 
   }
 
   static async updateImage(req, res, next) {
-
     const { title, name, url } = req.body
     const { id } = req.params
     try {
@@ -36,13 +35,12 @@ class WarehouseControllers {
       res.status(200).json({ message : 'Successfully update image' })
       
     } catch (error) {
-      console.log(error);    
+      next(error);    
     }
 
   }
 
   static async deleteImage(req, res, next) {
-
     const { id } = req.params
     try {
 
@@ -51,7 +49,7 @@ class WarehouseControllers {
       res.status(200).json({ message : 'Successfully delete image' })
       
     } catch (error) {
-      console.log(error);      
+      next(error);      
     }
 
   }
