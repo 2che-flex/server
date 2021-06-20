@@ -13,8 +13,8 @@ const authenticate = async (req, res, next) => {
       
         next()
       } else {
-        next({ code : 403,
-          message : 'Unauthorized Token'
+        next({ code : 404,
+          message : 'User Not Found'
         })  
       }
     } else {
