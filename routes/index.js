@@ -4,6 +4,6 @@ const warehouseRoute = require('./warehouseRoute')
 
 route.use('/', UserRoute)
 
-route.use('/image', warehouseRoute)
+route.use('/items', warehouseRoute)
 
 module.exports = route
