@@ -40,6 +40,15 @@ module.exports = (sequelize, DataTypes) => {
           msg : 'Url Item Cannot empty'
         }
       }
+    },
+    type: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Type Item Cannot empty'
+        }
+      }
     }
   }, {
     sequelize,
