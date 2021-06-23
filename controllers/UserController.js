@@ -4,10 +4,10 @@ const { comparePassword } = require('../helpers/useBcrypt')
 class UserController {
 
   static async getUser(req, res, next) {
-    const { username, password } = req.body
+    const { email, password } = req.body
     
     try {
-      const user = await User.findOne({where: { username }})
+      const user = await User.findOne({where: { email }})
       if (user) {
         const thisPasword = comparePassword(password, user.password)
 

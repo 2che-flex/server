@@ -4,13 +4,13 @@ class WarehouseControllers {
 
   static async fetchImages(req, res, next) {
     try {
-      const images = await Warehouse.findAll(
+      const items = await Warehouse.findAll(
         {
           order: [
             ['id', 'DESC'],
           ]
         })
-      res.status(200).json({images})
+      res.status(200).json({ items })
       
     } catch (error) {
       next(error);
