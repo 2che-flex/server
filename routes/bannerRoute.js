@@ -5,6 +5,8 @@ route.get('/', BannerController.fetchBanners)
 
 route.post('/', BannerController.inputBanner)
 
+route.get('/:id', BannerController.getBannerId)
+
 route.put('/:id', BannerController.updateBanner)
 
 route.delete('/:id', BannerController.deleteBanner)

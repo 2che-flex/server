@@ -5,6 +5,8 @@ route.get('/', WarehouseController.fetchImages)
 
 route.post('/', WarehouseController.inputImage)
 
+route.get('/:id', WarehouseController.getImageByPk)
+
 route.put('/:id', WarehouseController.updateImage)
 
 route.delete('/:id', WarehouseController.deleteImage)
