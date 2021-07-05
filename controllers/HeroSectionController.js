@@ -18,9 +18,9 @@ class HeroSectionControllers {
   }
 
   static async inputBanner(req, res, next) {
-    const { title, discription, video_url } = req.body
+    const { title, description, video_url } = req.body
     try {
-      const image = await HeroSection.create({ title, discription, video_url })
+      const image = await HeroSection.create({ title, description, video_url })
 
       res.status(201).json(image)
 
@@ -30,11 +30,11 @@ class HeroSectionControllers {
   }
 
   static async updateBanner(req, res, next) {
-    const { title, discription, video_url } = req.body
+    const { title, description, video_url } = req.body
     const { id } = req.params
     try {
 
-      await HeroSection.update({ title, discription, video_url }, { where: { id } })
+      await HeroSection.update({ title, description, video_url }, { where: { id } })
 
       res.status(200).json({ message : 'Successfully update image' })
       
