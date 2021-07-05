@@ -1,12 +1,12 @@
 const route = require('express').Router()
-const HeroSectionController = require('../controllers/HeroSectionController')
+const BannerController = require('../controllers/BannerController')
 
-route.get('/', HeroSectionController.fetchBanners)
+route.get('/', BannerController.fetchBanners)
 
-route.post('/', HeroSectionController.inputBanner)
+route.post('/', BannerController.inputBanner)
 
-route.put('/:id', HeroSectionController.updateBanner)
+route.put('/:id', BannerController.updateBanner)
 
-route.delete('/:id', HeroSectionController.deleteBanner)
+route.delete('/:id', BannerController.deleteBanner)
 
 module.exports = route

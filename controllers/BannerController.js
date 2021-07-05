@@ -29,6 +29,18 @@ class HeroSectionControllers {
     }
   }
 
+  static async getBannerId(req, res, next) {
+    const { id } = req.params
+    try {
+      const image = await HeroSection.findByPk(id)
+
+      res.status(201).json(image)
+
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async updateBanner(req, res, next) {
     const { title, desc, video_url } = req.body
     const { id } = req.params

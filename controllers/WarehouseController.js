@@ -29,6 +29,17 @@ class WarehouseControllers {
     }
   }
 
+  static async getImageByPk(req, res, next) {
+    const { id } = req.params
+    try {
+      const image = await Warehouse.findByPk(id)
+
+      res.status(200).json(image)
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async updateImage(req, res, next) {
     const { title, description, url, type } = req.body
     const { id } = req.params
