@@ -18,9 +18,9 @@ class WarehouseControllers {
   }
 
   static async inputImage(req, res, next) {
-    const { title, discription, url } = req.body
+    const { title, discription, url, type } = req.body
     try {
-      const image = await Warehouse.create({ title, discription, url })
+      const image = await Warehouse.create({ title, discription, url, type })
 
       res.status(201).json(image)
 
@@ -30,11 +30,11 @@ class WarehouseControllers {
   }
 
   static async updateImage(req, res, next) {
-    const { title, discription, url } = req.body
+    const { title, discription, url, type } = req.body
     const { id } = req.params
     try {
 
-      await Warehouse.update({ title, discription, url }, { where: { id } })
+      await Warehouse.update({ title, discription, url, type }, { where: { id } })
 
       res.status(200).json({ message : 'Successfully update image' })
       
