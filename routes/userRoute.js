@@ -1,9 +1,9 @@
 const route = require('express').Router()
 const UserController = require('../controllers/UserController')
 
-route.post('/login', UserController.getUser)
-
-route.post('/register', UserController.createUserAdmin)
+route
+  .post('/login', UserController.getUser)
+  .post('/register', UserController.createUserAdmin)
 
 // route.put('/', UserController.createUserAdmin)
 

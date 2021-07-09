@@ -1,14 +1,11 @@
 const route = require('express').Router()
 const WarehouseController = require('../controllers/WarehouseController')
 
-route.get('/', WarehouseController.fetchImages)
-
-route.post('/', WarehouseController.inputImage)
-
-route.get('/:id', WarehouseController.getImageByPk)
-
-route.put('/:id', WarehouseController.updateImage)
-
-route.delete('/:id', WarehouseController.deleteImage)
+route
+  .get('/', WarehouseController.fetchImages)
+  .post('/', WarehouseController.inputImage)
+  .get('/:id', WarehouseController.getImageByPk)
+  .put('/:id', WarehouseController.updateImage)
+  .delete('/:id', WarehouseController.deleteImage)
 
 module.exports = route
