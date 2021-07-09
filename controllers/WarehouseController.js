@@ -20,9 +20,9 @@ class WarehouseControllers {
   static async inputImage(req, res, next) {
     const { title, description, url, type } = req.body
     try {
-      const image = await Warehouse.create({ title, description, url, type })
+      const item = await Warehouse.create({ title, description, url, type })
 
-      res.status(201).json(image)
+      res.status(201).json(item)
 
     } catch (error) {
       next(error);
@@ -32,9 +32,9 @@ class WarehouseControllers {
   static async getImageByPk(req, res, next) {
     const { id } = req.params
     try {
-      const image = await Warehouse.findByPk(id)
+      const item = await Warehouse.findByPk(id)
 
-      res.status(200).json(image)
+      res.status(200).json(item)
     } catch (error) {
       next(error);
     }

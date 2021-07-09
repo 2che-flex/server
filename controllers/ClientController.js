@@ -13,7 +13,6 @@ class ClientController {
       res.status(200).json({ client })
       
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
