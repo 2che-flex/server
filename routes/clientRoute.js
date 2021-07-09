@@ -1,6 +1,7 @@
 const route = require('express').Router()
 const ClientController = require('../controllers/ClientController')
 
+// !Use method chaining
 route
   .get('/client', ClientController.fetchClients)
   .post('/client', ClientController.inputClient)

@@ -1,6 +1,7 @@
 const route = require('express').Router()
 const WarehouseController = require('../controllers/WarehouseController')
 
+// !Use method chaining
 route
   .get('/', WarehouseController.fetchImages)
   .post('/', WarehouseController.inputImage)

@@ -1,6 +1,7 @@
 const route = require('express').Router()
 const BannerController = require('../controllers/BannerController')
 
+// !Use method chaining
 route
   .get('/banner/', BannerController.fetchBanners)
   .post('/banner/', BannerController.inputBanner)
