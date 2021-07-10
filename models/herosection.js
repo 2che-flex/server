@@ -40,6 +40,15 @@ module.exports = (sequelize, DataTypes) => {
           msg : 'Description Video Cannot empty'
         }
       }
+    },
+    image_url: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Description Image Cannot empty'
+        }
+      }
     }
   }, {
     sequelize,
