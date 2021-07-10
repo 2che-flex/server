@@ -6,10 +6,10 @@ const clientRoute = require('./clientRoute')
 
 route.use(
   '/api/v1/', 
-  UserRoute,  
-  bannerRoute, 
+  // UserRoute,  
+  // bannerRoute, 
   clientRoute, 
-  warehouseRoute,
+  // warehouseRoute,
   );
 
 module.exports = route

@@ -2,17 +2,19 @@ const { client } = require('../models')
 
 class ClientController {
   static async fetchClients(req, res, next) {
+    console.log('===============run--------=>>')
     try {
-      const client = await client.findAll(
+      const users = await client.findAll(
         {
           order: [
             ['id', 'DESC'],
           ]
         })
 
-      res.status(200).json({ client })
+      res.status(200).json({ users })
       
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }
