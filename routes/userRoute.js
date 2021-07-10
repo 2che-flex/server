@@ -6,6 +6,6 @@ route
   .post('/login', UserController.getUser)
   .post('/register', UserController.createUserAdmin)
 
-// route.put('/', UserController.createUserAdmin)
+//.put('/', UserController.createUserAdmin)
 
 module.exports = route
