@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Warehouse.belongsTo(models.Category, { foreignKey: 'CategoryId' })
     }
   };
   Warehouse.init({
@@ -58,6 +59,9 @@ module.exports = (sequelize, DataTypes) => {
           msg : 'Type Video Url Cannot empty'
         }
       }
+    },
+    CategoryId: {
+      type : DataTypes.INTEGER
     }
   }, {
     sequelize,
