@@ -3,12 +3,14 @@ const UserRoute = require('./userRoute')
 const warehouseRoute = require('./warehouseRoute')
 const bannerRoute = require('./bannerRoute')
 const clientRoute = require('./clientRoute')
+const categoryRoute = require('./CategoryRoute')
 
 route.use(
   '/api/v1/', 
   UserRoute,  
   bannerRoute, 
-  clientRoute, 
+  clientRoute,
+  categoryRoute,
   warehouseRoute,
   );
 

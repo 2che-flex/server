@@ -1,7 +1,7 @@
-const includes = require('lodash.includes');
+// const includes = require('lodash.includes');
 const { Warehouse, Category } = require('../models/')
 
-class WarehouseControllers {
+class CategoryController {
 
   static async fetchWorksByCategory(req, res, next) {
     const { id } = req.params
@@ -48,4 +48,4 @@ class WarehouseControllers {
 
 }
 
-module.exports = WarehouseControllers
+module.exports = CategoryController
