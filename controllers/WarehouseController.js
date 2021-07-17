@@ -41,11 +41,11 @@ class WarehouseControllers {
   }
 
   static async updateImage(req, res, next) {
-    const { title, description, url, type, video_url } = req.body
+    const { title, description, url, type, video_url, CategoryId } = req.body
     const { id } = req.params
     try {
 
-      await Warehouse.update({ title, description, url, type, video_url }, { where: { id } })
+      await Warehouse.update({ title, description, url, type, video_url, CategoryId }, { where: { id } })
 
       res.status(200).json({ message : 'Successfully update image' })
       
