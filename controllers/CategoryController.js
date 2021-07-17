@@ -9,6 +9,7 @@ class CategoryController {
       const items = await Category.findByPk(id,
         {
           include: {
+            as: 'Works',
             model: Warehouse,
             separate: true,
             order: [['id', 'DESC']]
@@ -16,6 +17,21 @@ class CategoryController {
         })
       res.status(200).json(items)
       
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async fetchCategories(req, res, next) {
+    try {
+      const categories = await Category.findAll({
+        order: [
+          ['name', 'ASC'],
+        ]
+      })
+
+      res.status(201).json({ categories })
+
     } catch (error) {
       next(error);
     }

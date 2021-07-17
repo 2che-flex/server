@@ -18,9 +18,9 @@ class WarehouseControllers {
   }
 
   static async inputImage(req, res, next) {
-    const { title, description, url, type, video_url } = req.body
+    const { title, description, url, type, video_url, CategoryId } = req.body
     try {
-      const item = await Warehouse.create({ title, description, url, type, video_url })
+      const item = await Warehouse.create({ title, description, url, type, video_url, CategoryId })
 
       res.status(201).json(item)
 
