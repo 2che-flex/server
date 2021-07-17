@@ -14,7 +14,7 @@ class CategoryController {
             order: [['id', 'DESC']]
           }
         })
-      res.status(200).json({ items })
+      res.status(200).json(items)
       
     } catch (error) {
       next(error);
