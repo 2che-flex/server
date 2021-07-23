@@ -21,7 +21,7 @@ class ContactController {
   static async inputContact(req, res, next) {
     const { name, email, phone_number, role } = req.body
     try {
-      const dataContact = await Contact.create({ name, email, phone_number, role })
+      const dataContact = await Contact.create({ name, email, phone_number: +phone_number, role })
 
       res.status(201).json(dataContact)
 
@@ -47,7 +47,7 @@ class ContactController {
     const { id } = req.params
     try {
 
-      await Contact.update({ name, email, phone_number, role }, { where: { id } })
+      await Contact.update({ name, email, phone_number: +phone_number, role }, { where: { id } })
 
       res.status(200).json({ message : 'Successfully update data Contact' })
       
