@@ -1,7 +1,7 @@
 const { contact } = require('../models')
 
-class ClientController {
-  static async fetchClients(req, res, next) {
+class ContactController {
+  static async fetchContacts(req, res, next) {
     try {
       const users = await contact.findAll(
         {
@@ -18,31 +18,31 @@ class ClientController {
     }
   }
 
-  static async inputClient(req, res, next) {
+  static async inputContact(req, res, next) {
     const { name, email, phone_number, role } = req.body
     try {
-      const dataClient = await contact.create({ name, email, phone_number, role })
+      const dataContact = await contact.create({ name, email, phone_number, role })
 
-      res.status(201).json(dataClient)
+      res.status(201).json(dataContact)
 
     } catch (error) {
       next(error);
     }
   }
 
-  static async getClientId(req, res, next) {
+  static async getContactId(req, res, next) {
     const { id } = req.params
     try {
-      const dataClient = await contact.findByPk(id)
+      const dataContact = await contact.findByPk(id)
 
-      res.status(201).json(dataClient)
+      res.status(201).json(dataContact)
 
     } catch (error) {
       next(error);
     }
   }
 
-  static async updateClient(req, res, next) {
+  static async updateContact(req, res, next) {
     const { name, email, phone_number, role } = req.body
     const { id } = req.params
     try {
@@ -56,7 +56,7 @@ class ClientController {
     }
   }
 
-  static async deleteClient(req, res, next) {
+  static async deleteContact(req, res, next) {
     const { id } = req.params
     try {
 
@@ -70,4 +70,4 @@ class ClientController {
   }
 }
 
-module.exports = ClientController
+module.exports = ContactController

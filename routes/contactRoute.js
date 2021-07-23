@@ -3,10 +3,10 @@ const ContactController = require('../controllers/ContactController')
 
 // !Use method chaining
 route
-  .get('/contact', ContactController.fetchClients)
-  .post('/contact', ContactController.inputClient)
-  .get('/contact/:id', ContactController.getClientId)
-  .put('/contact/:id', ContactController.updateClient)
-  .delete('/contact/:id', ContactController.deleteClient)
+  .get('/contact', ContactController.fetchContacts)
+  .post('/contact', ContactController.inputContact)
+  .get('/contact/:id', ContactController.getContactId)
+  .put('/contact/:id', ContactController.updateContact)
+  .delete('/contact/:id', ContactController.deleteContact)
 
 module.exports = route

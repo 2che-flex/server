@@ -1,12 +1,12 @@
 const route = require('express').Router()
-const ContactController = require('../controllers/ContactController')
+const StoryController = require('../controllers/StoryController')
 
 // !Use method chaining
 route
-  .get('/story', ContactController.fetchClients)
-  .post('/story', ContactController.inputClient)
-  .get('/story/:id', ContactController.getClientId)
-  .put('/story/:id', ContactController.updateClient)
-  .delete('/story/:id', ContactController.deleteClient)
+  .get('/story', StoryController.fetchStorys)
+  .post('/story', StoryController.inputStory)
+  .get('/story/:id', StoryController.getStoryId)
+  .put('/story/:id', StoryController.updateStory)
+  .delete('/story/:id', StoryController.deleteStory)
 
 module.exports = route
