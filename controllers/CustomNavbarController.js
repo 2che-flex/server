@@ -1,4 +1,4 @@
-const { CustomNavbar, Warehouse } = require('../models')
+const { CustomNavbar, Warehouse, Category } = require('../models')
 
 class CustomNavbarControllers {
 
@@ -8,15 +8,20 @@ class CustomNavbarControllers {
       const items = await CustomNavbar.findByPk(id,
         {
           include: {
-            as: 'Works',
-            model: Warehouse,
-            separate: true,
-            order: [['id', 'DESC']]
+            as: 'Category',
+            model: Category,
+            include: {
+              model: Warehouse,
+              as: 'Works',
+              order: [['id', 'DESC']],
+              separate: true
+            }
           }
         })
       res.status(200).json(items)
       
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }
@@ -37,13 +42,14 @@ class CustomNavbarControllers {
   }
 
   static async inputNavbar(req, res, next) {
-    const { name, CategoryId } = req.body
+    const { name, CategoryId, isActive } = req.body
     try {
-      const CustomNavbar = await CustomNavbar.create({ name, CategoryId })
+      const customNavbar = await CustomNavbar.create({ name, CategoryId, isActive })
 
-      res.status(201).json(CustomNavbar)
+      res.status(201).json(customNavbar)
 
     } catch (error) {
+      console.log(error.message);
       next(error);
     }
   }

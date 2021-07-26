@@ -3,12 +3,10 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.addColumn('CustomNavbars', 'isActive', {  
-      type: Sequelize.STRING
+      type: Sequelize.BOOLEAN
     });
   },
-
   down: async (queryInterface, Sequelize) => {
-
     await queryInterface.removeColumn('CustomNavbars', 'isActive');
   }
 };

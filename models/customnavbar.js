@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      CustomNavbar.belongsTo(models.Category, { as: 'Works', foreignKey: 'CategoryId' })
+      CustomNavbar.belongsTo(models.Category, { as: 'Category' })
     }
   };
   CustomNavbar.init({

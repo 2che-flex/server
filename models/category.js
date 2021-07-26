@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Category.hasMany(models.Warehouse, { as: 'Works', foreignKey: 'CategoryId' })
+      Category.hasOne(models.CustomNavbar, { as: 'Category' })
     }
   };
   Category.init({
