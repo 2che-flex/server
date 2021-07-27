@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   CustomNavbar.init({
     name: DataTypes.STRING,
-    CategoryId: DataTypes.INTEGER
+    CategoryId: DataTypes.INTEGER,
+    isActive: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'CustomNavbar',
