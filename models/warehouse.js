@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Warehouse.belongsTo(models.Category, { as: 'Works', foreignKey: 'CategoryId' })
-      Warehouse.belongsTo(models.CustomNavbar, { as: 'Categories', foreignKey: 'CategoryId' })
+      // Warehouse.belongsTo(models.CustomNavbar, { as: 'Category', foreignKey: 'CategoryId' })
     }
   };
   Warehouse.init({
