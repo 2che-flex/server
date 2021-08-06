@@ -14,8 +14,33 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   SocialMedia.init({
-    name: DataTypes.STRING,
-    url: DataTypes.STRING
+    name: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Name Cannot empty'
+        }
+      }
+    },
+    url: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Url Cannot empty'
+        }
+      }
+    },
+    base64: {
+      type : DataTypes.TEXT,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Encode base64 Cannot empty'
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'SocialMedia',

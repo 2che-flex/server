@@ -15,9 +15,33 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   CustomNavbar.init({
-    name: DataTypes.STRING,
-    CategoryId: DataTypes.INTEGER,
-    isActive: DataTypes.BOOLEAN
+    name: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Name Navbar Cannot empty'
+        }
+      }
+    },
+    CategoryId: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Name Category Cannot empty'
+        }
+      }
+    },
+    isActive: {
+      type : DataTypes.BOOLEAN,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Is active Cannot empty'
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'CustomNavbar',

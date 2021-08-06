@@ -2,41 +2,33 @@ const { CustomNavbar, Warehouse, Category } = require('../models')
 
 class CustomNavbarControllers {
 
-  static async fetchNavbarsByCategory(req, res, next) {
-    const { id } = req.params
-    try {
-      const items = await CustomNavbar.findByPk(id,
-        {
-          include: {
-            as: 'Category',
-            model: Category,
-            include: {
-              model: Warehouse,
-              as: 'Works',
-              order: [['id', 'DESC']],
-              separate: true
-            }
-          }
-        })
-      res.status(200).json(items)
-      
-    } catch (error) {
-      console.log(error);
-      next(error);
-    }
-  }
-
   static async fetchNavbars(req, res, next) {
+    const { active } = req.query
+    const isActive = active ? active.toLowerCase() === 'true' : null
     try {
-      const navbars = await CustomNavbar.findAll({
-        include: {
-          as: 'Category',
-          model: Category,
-          order: [
-            ['id', 'ASC'],
-          ]
-        }
-      })
+
+      if (isActive) {
+        const items = await CustomNavbar.findAll(
+          {
+            where: { isActive },
+            include: {
+              as: 'Category',
+              model: Category,
+              include: {
+                model: Warehouse,
+                as: 'Works',
+                order: [['id', 'DESC']],
+                separate: true
+              }
+            }
+          })
+
+        res.status(200).json(items)
+        
+        return
+      }
+
+      const navbars = await CustomNavbar.findAll()
 
       res.status(201).json({ navbars })
 
