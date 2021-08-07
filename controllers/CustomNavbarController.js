@@ -4,7 +4,7 @@ class CustomNavbarControllers {
 
   static async fetchNavbars(req, res, next) {
     const { active } = req.query
-    const isActive = active ? active.toLowerCase() === 'true' : null
+    const isActive = active.toLowerCase() === 'true' || null
     try {
 
       if (isActive) {
@@ -72,7 +72,7 @@ class CustomNavbarControllers {
       res.status(200).json({ message : 'Successfully update' })
       
     } catch (error) {
-      next(error);    
+      next(error);
     }
   }
 

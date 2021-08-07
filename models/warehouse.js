@@ -34,12 +34,12 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    url: {
-      type : DataTypes.STRING,
+    base64: {
+      type : DataTypes.TEXT,
       validate : {
         notEmpty :{
           args : true,
-          msg : 'Url Item Cannot empty'
+          msg : 'Version base64 from image cannot empty'
         }
       }
     },
