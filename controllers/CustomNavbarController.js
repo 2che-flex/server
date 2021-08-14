@@ -6,7 +6,7 @@ class CustomNavbarControllers {
     const { active } = req.query
     const isActive = active ? active.toLowerCase() === 'true' : null
     try {
-
+      console.log(isActive)
       if (isActive) {
         const items = await CustomNavbar.findAll(
           {

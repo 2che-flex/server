@@ -49,6 +49,18 @@ class CategoryController {
     }
   }
 
+  static async updateCategory(req, res, next) {
+    const { id } = req.params
+    const { name } = req.body
+    try {
+     await Category.update({ name }, { where: { id } }) 
+
+     res.status(200).json({ message : 'Successfully update category' })
+    } catch (error) {
+      next(error)
+    }
+  }
+
   static async deleteCategory(req, res, next) {
     const { id } = req.params
     try {

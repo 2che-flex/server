@@ -5,6 +5,7 @@ const CategoryController = require('../controllers/CategoryController')
 route
   .get('/category', CategoryController.fetchCategories)
   .get('/category/:id', CategoryController.fetchWorksByCategory)
+  .put('/category/:id', CategoryController.updateCategory)
   .post('/category/', CategoryController.inputCategory)
   .delete('/category/:id', CategoryController.deleteCategory)
 
