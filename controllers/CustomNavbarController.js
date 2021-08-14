@@ -28,7 +28,7 @@ class CustomNavbarControllers {
         return
       }
 
-      const navbars = await CustomNavbar.findAll()
+      const navbars = await CustomNavbar.findAll({where: { isActive: true }})
 
       res.status(201).json({ navbars })
 
