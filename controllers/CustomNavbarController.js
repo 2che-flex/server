@@ -43,7 +43,6 @@ class CustomNavbarControllers {
       res.status(201).json(customNavbar)
 
     } catch (error) {
-      console.log(error.message);
       next(error);
     }
   }
