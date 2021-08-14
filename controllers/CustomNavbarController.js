@@ -4,13 +4,11 @@ class CustomNavbarControllers {
 
   static async fetchNavbars(req, res, next) {
     const { active } = req.query
-    // const isActive = active ? active.toLowerCase() === 'true' : null
-    // console.log(active);
     try {
-      if (active) {
-        const items = await CustomNavbar.findAll(
+      if (active?.toLowerCase() === 'true') {
+        const item = await CustomNavbar.findAll(
           {
-            where: { isActive: true },
+            where: { active: "true" },
             include: {
               as: 'Category',
               model: Category,
@@ -23,12 +21,12 @@ class CustomNavbarControllers {
             }
           })
 
-        res.status(200).json(items)
+        res.status(200).json(item)
         
         return
       }
 
-      const navbars = await CustomNavbar.findAll({where: { isActive: true }})
+      const navbars = await CustomNavbar.findAll()
 
       res.status(201).json({ navbars })
 
@@ -38,9 +36,9 @@ class CustomNavbarControllers {
   }
 
   static async inputNavbar(req, res, next) {
-    const { name, CategoryId, isActive } = req.body
+    const { name, CategoryId, active } = req.body
     try {
-      const customNavbar = await CustomNavbar.create({ name, CategoryId, isActive: isActive === 'true' ? true : false })
+      const customNavbar = await CustomNavbar.create({ name, CategoryId, active })
 
       res.status(201).json(customNavbar)
 
@@ -63,11 +61,11 @@ class CustomNavbarControllers {
   }
 
   static async updateNavbar(req, res, next) {
-    const { name, CategoryId, isActive } = req.body
+    const { name, CategoryId, active } = req.body
     const { id } = req.params
     try {
 
-      await CustomNavbar.update({ name, CategoryId, isActive: isActive === 'true' ? true : false }, { where: { id } })
+      await CustomNavbar.update({ name, CategoryId, active }, { where: { id } })
 
       res.status(200).json({ message : 'Successfully update' })
       

@@ -41,6 +41,17 @@ module.exports = (sequelize, DataTypes) => {
           msg : 'Is active Cannot empty'
         }
       }
+      
+    },
+    active: {
+      type : DataTypes.BOOLEAN,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Active Cannot empty'
+        }
+      }
+      
     },
   }, {
     sequelize,
