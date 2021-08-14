@@ -4,10 +4,10 @@ class CustomNavbarControllers {
 
   static async fetchNavbars(req, res, next) {
     const { active } = req.query
-    const isActive = active ? active.toLowerCase() === 'true' : null
+    // const isActive = active ? active.toLowerCase() === 'true' : null
+    // console.log(active);
     try {
-      console.log(isActive)
-      if (isActive) {
+      if (active) {
         const items = await CustomNavbar.findAll(
           {
             where: { isActive: true },
