@@ -61,6 +61,15 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    dataUrl: {
+      type : DataTypes.BLOB,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Image Cannot empty'
+        }
+      }
+    },
     CategoryId: {
       type : DataTypes.INTEGER
     }
