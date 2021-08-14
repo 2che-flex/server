@@ -1,12 +1,22 @@
-// const route = require('express').Router()
-// const ClientController = require('../controllers/ClientController')
+const { fetchBanners } = require('../controllers/BannerController')
+const { fetchCategories, fetchWorksByCategory } = require('../controllers/CategoryController')
+const { fetchContacts } = require('../controllers/ContactController')
+const { fetchNavbars } = require('../controllers/CustomNavbarController')
+const { fetchSocialMedia } = require('../controllers/SocialMediaController')
+const { fetchStorys } = require('../controllers/StoryController')
+const { fetchImages } = require('../controllers/WarehouseController')
 
-// // !Use method chaining
-// route
-//   .get('/client', ClientController.fetchClients)
-//   .post('/client', ClientController.inputClient)
-//   .get('/client/:id', ClientController.getClientId)
-//   .put('/client/:id', ClientController.updateClient)
-//   .delete('/client/:id', ClientController.deleteClient)
+const route = require('express').Router()
 
-// module.exports = route
+route
+  .get('/story', fetchStorys)
+  .get('/banner/', fetchBanners)
+  .get('/navbar/', fetchNavbars)
+  .get('/contact', fetchContacts)
+  .get('/category', fetchCategories)
+  .get('/category/:id', fetchWorksByCategory)
+  .get('/footer/', fetchSocialMedia)
+  .get('/', fetchImages)
+  
+
+module.exports = route

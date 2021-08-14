@@ -10,7 +10,7 @@ class CustomNavbarControllers {
       if (isActive) {
         const items = await CustomNavbar.findAll(
           {
-            where: { isActive },
+            where: { isActive: true },
             include: {
               as: 'Category',
               model: Category,

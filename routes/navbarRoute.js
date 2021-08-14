@@ -3,7 +3,6 @@ const NavbarController = require('../controllers/CustomNavbarController')
 
 // !Use method chaining
 route
-  .get('/navbar/', NavbarController.fetchNavbars)
   .post('/navbar/', NavbarController.inputNavbar)
   .get('/navbar/:id', NavbarController.getNavbarId)
   .put('/navbar/:id', NavbarController.updateNavbar)

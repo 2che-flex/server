@@ -3,7 +3,6 @@ const SocialMediaController = require('../controllers/SocialMediaController')
 
 // !Use method chaining
 route
-  .get('/footer/', SocialMediaController.fetchSocialMedias)
   .post('/footer/', SocialMediaController.inputSocialMedia)
   .get('/footer/:id', SocialMediaController.getSocialMediaId)
   .put('/footer/:id', SocialMediaController.updateSocialMedia)

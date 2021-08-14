@@ -2,7 +2,7 @@ const { SocialMedia } = require('../models')
 
 class SocialMediaController {
 
-  static async fetchSocialMedias(req, res, next) {
+  static async fetchSocialMedia(req, res, next) {
     try {
       const socialMedia = await SocialMedia.findAll(
         {
