@@ -1,0 +1,46 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Show Masterpiece",
+  "main": "index.js",
+  "scripts": {
+    "db:create:test": "NODE_ENV=test sequelize db:create",
+    "db:migrate:test": "NODE_ENV=test sequelize db:migrate",
+    "db:undo:migrate:test": "NODE_ENV=test sequelize db:migrate:undo:all",
+    "db:seed:test": "NODE_ENV=test sequelize db:seed:all",
+    "db:create:dev": "NODE_ENV=development sequelize db:create",
+    "db:migrate:dev": "NODE_ENV=development sequelize db:migrate",
+    "db:undo:migrate:dev": "NODE_ENV=development sequelize db:migrate:undo:all",
+    "db:seed:dev": "NODE_ENV=development sequelize db:seed:all",
+    "test": "NODE_ENV=test npx jest --detectOpenHandles --forceExit --runInBand",
+    "dev": "NODE_ENV=development nodemon ./bin/http.js",
+    "start": "node ./bin/http.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2che-flex/server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2che-flex/server/issues"
+  },
+  "homepage": "https://github.com/2che-flex/server#readme",
+  "dependencies": {
+    "@google-cloud/storage": "^5.8.5",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "firebase": "^8.7.1",
+    "firebase-admin": "^9.9.0",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "pg": "^8.6.0",
+    "pg-native": "^3.0.0",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
+}
