@@ -7,5 +7,6 @@ route
   .put('/category/:id', CategoryController.updateCategory)
   .post('/category/', CategoryController.inputCategory)
   .delete('/category/:id', CategoryController.deleteCategory)
+  .get('/category/by/:id', CategoryController.fetchCategoryById)
 
 module.exports = route
