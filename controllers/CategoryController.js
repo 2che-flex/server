@@ -30,7 +30,19 @@ class CategoryController {
         ]
       })
 
-      res.status(201).json({ categories })
+      res.status(200).json({ categories })
+
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async fetchCategoryById(req, res, next) {
+    const { id } = req.body
+    try {
+      const category = await Category.findByPk(id)
+
+      res.status(200).json({ category })
 
     } catch (error) {
       next(error);

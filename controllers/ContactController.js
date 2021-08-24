@@ -35,7 +35,7 @@ class ContactController {
     try {
       const dataContact = await Contact.findByPk(id)
 
-      res.status(201).json(dataContact)
+      res.status(200).json(dataContact)
 
     } catch (error) {
       next(error);

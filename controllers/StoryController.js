@@ -34,7 +34,7 @@ class StoryController {
     try {
       const dataStory = await Story.findByPk(id)
 
-      res.status(201).json(dataStory)
+      res.status(200).json(dataStory)
 
     } catch (error) {
       next(error);

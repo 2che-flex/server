@@ -28,7 +28,7 @@ class CustomNavbarControllers {
 
       const navbars = await CustomNavbar.findAll()
 
-      res.status(201).json({ navbars })
+      res.status(200).json({ navbars })
 
     } catch (error) {
       next(error);
@@ -52,7 +52,7 @@ class CustomNavbarControllers {
     try {
       const customNavbar = await CustomNavbar.findByPk(id)
 
-      res.status(201).json(customNavbar)
+      res.status(200).json(customNavbar)
 
     } catch (error) {
       next(error);

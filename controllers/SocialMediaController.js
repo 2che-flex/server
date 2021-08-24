@@ -25,7 +25,6 @@ class SocialMediaController {
       res.status(201).json(socialMedia)
 
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -35,7 +34,7 @@ class SocialMediaController {
     try {
       const socialMedia = await SocialMedia.findByPk(id)
 
-      res.status(201).json(socialMedia)
+      res.status(200).json(socialMedia)
 
     } catch (error) {
       next(error);

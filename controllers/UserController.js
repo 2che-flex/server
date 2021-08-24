@@ -42,7 +42,7 @@ class UserController {
     try {
       const user = await User.create({ username, email, password })
       
-      res.status(201).json(user)
+      res.status(200).json(user)
     } catch (error) {
       next(error);
     }

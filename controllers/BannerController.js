@@ -34,7 +34,7 @@ class HeroSectionControllers {
     try {
       const video = await HeroSection.findByPk(id)
 
-      res.status(201).json(video)
+      res.status(200).json(video)
 
     } catch (error) {
       next(error);
