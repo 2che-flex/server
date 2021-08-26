@@ -16,6 +16,9 @@ const dbOption = {
 module.exports = {
   development: {
     ...dbOption,
+    "dialectOptions": {
+      "multipleStatements": true
+    }
   },
   test: {
     ...dbOption,
