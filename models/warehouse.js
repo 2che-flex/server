@@ -34,24 +34,6 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    base64: {
-      type : DataTypes.TEXT,
-      validate : {
-        notEmpty :{
-          args : true,
-          msg : 'Version base64 from image cannot empty'
-        }
-      }
-    },
-    type: {
-      type : DataTypes.STRING,
-      validate : {
-        notEmpty :{
-          args : true,
-          msg : 'Type Item Cannot empty'
-        }
-      }
-    },
     video_url: {
       type : DataTypes.STRING,
       validate : {
@@ -61,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    dataUrl: {
-      type : DataTypes.BLOB,
+    imageData: {
+      type : DataTypes.TEXT('long'),
       validate : {
         notEmpty :{
           args : true,

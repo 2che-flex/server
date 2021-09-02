@@ -41,15 +41,15 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    image_url: {
-      type : DataTypes.STRING,
+    imageData: {
+      type : DataTypes.TEXT('long'),
       validate : {
         notEmpty :{
           args : true,
-          msg : 'Description Image Cannot empty'
+          msg : 'Image Cannot empty'
         }
       }
-    }
+    },
   }, {
     sequelize,
     modelName: 'HeroSection',

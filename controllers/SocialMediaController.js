@@ -18,9 +18,9 @@ class SocialMediaController {
   }
 
   static async inputSocialMedia(req, res, next) {
-    const { name, url, base64 } = req.body
+    const { name, url, imageData } = req.body
     try {
-      const socialMedia = await SocialMedia.create({ name, url, base64 })
+      const socialMedia = await SocialMedia.create({ name, url, imageData })
 
       res.status(201).json(socialMedia)
 
@@ -42,11 +42,11 @@ class SocialMediaController {
   }
 
   static async updateSocialMedia(req, res, next) {
-    const { name, url, base64 } = req.body
+    const { name, url, imageData } = req.body
     const { id } = req.params
     try {
 
-      await SocialMedia.update({ name, url, base64 }, { where: { id } })
+      await SocialMedia.update({ name, url, imageData }, { where: { id } })
 
       res.status(200).json({ message : 'Successfully update' })
       

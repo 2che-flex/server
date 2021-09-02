@@ -6,6 +6,7 @@ const { fetchSocialMedia } = require('../controllers/SocialMediaController')
 const { fetchStorys } = require('../controllers/StoryController')
 const { fetchImages } = require('../controllers/WarehouseController')
 const StoryController = require('../controllers/StoryController')
+const { getServiceId, fetchServices } = require('../controllers/ServiceController')
 
 const route = require('express').Router()
 
@@ -18,6 +19,8 @@ route
   .get('/category/:id', fetchWorksByCategory)
   .get('/footer/', fetchSocialMedia)
   .get('/story/:id', StoryController.getStoryId)
+  .get('/services/', fetchServices)
+  .get('/services/:id', getServiceId)
   .get('/', fetchImages)
   
 

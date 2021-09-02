@@ -11,16 +11,16 @@ class WarehouseControllers {
           ]
         })
       res.status(200).json({ items })
-      
+
     } catch (error) {
       next(error);
     }
   }
 
   static async inputImage(req, res, next) {
-    const { title, description, type, video_url, CategoryId, base64 } = req.body
+    const { title, description, video_url, CategoryId, imageData } = req.body
     try {
-      const item = await Warehouse.create({ title, description, type, video_url, CategoryId, base64 })
+      const item = await Warehouse.create({ title, description, video_url, CategoryId, imageData })
 
       res.status(201).json(item)
 
@@ -41,16 +41,16 @@ class WarehouseControllers {
   }
 
   static async updateImage(req, res, next) {
-    const { title, description, type, video_url, CategoryId, base64 } = req.body
+    const { title, description, video_url, CategoryId, imageData } = req.body
     const { id } = req.params
     try {
 
-      await Warehouse.update({ title, description, type, video_url, CategoryId, base64 }, { where: { id } })
+      await Warehouse.update({ title, description, video_url, CategoryId, imageData }, { where: { id } })
 
-      res.status(200).json({ message : 'Successfully update image' })
-      
+      res.status(200).json({ message: 'Successfully update imageData' })
+
     } catch (error) {
-      next(error);    
+      next(error);
     }
   }
 
@@ -60,8 +60,8 @@ class WarehouseControllers {
 
       await Warehouse.destroy({ where: { id } })
 
-      res.status(200).json({ message : 'Successfully delete image' })
-      
+      res.status(200).json({ message: 'Successfully delete imageData' })
+
     } catch (error) {
       next(error);
     }

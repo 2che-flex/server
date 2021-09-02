@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      CustomNavbar.belongsTo(models.Category, { as: 'Category' })
+      // CustomNavbar.belongsTo(models.Category, { as: 'Category' })
     }
   };
   CustomNavbar.init({
@@ -24,15 +24,6 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    CategoryId: {
-      type : DataTypes.STRING,
-      validate : {
-        notEmpty :{
-          args : true,
-          msg : 'Name Category Cannot empty'
-        }
-      }
-    },
     isActive: {
       type : DataTypes.BOOLEAN,
       validate : {
@@ -41,17 +32,15 @@ module.exports = (sequelize, DataTypes) => {
           msg : 'Is active Cannot empty'
         }
       }
-      
     },
-    active: {
-      type : DataTypes.BOOLEAN,
+    textHtml: {
+      type : DataTypes.TEXT('long'),
       validate : {
         notEmpty :{
           args : true,
-          msg : 'Active Cannot empty'
+          msg : 'Text HTML Cannot empty'
         }
       }
-      
     },
   }, {
     sequelize,

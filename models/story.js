@@ -14,7 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Story.init({
-    teks: DataTypes.TEXT
+    textHtml: {
+      type : DataTypes.TEXT('long'),
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'Text HTML Cannot empty'
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'Story',

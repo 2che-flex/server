@@ -6,6 +6,7 @@ const bannerRoute = require('./bannerRoute')
 const navbarRoute = require('./navbarRoute')
 const clientRoute = require('./clientRoute')
 const contactRoute = require('./contactRoute')
+const serviceRoute = require('./serviceRoute')
 const categoryRoute = require('./categoryRoute')
 const warehouseRoute = require('./warehouseRoute')
 const socialMediaRoute = require('./socialMediaRoute')
@@ -41,6 +42,11 @@ route.use(
 route.use(
   '/api/v1/',
   contactRoute,
+);
+
+route.use(
+  '/api/v1/',
+  serviceRoute,
 );
 
 route.use(

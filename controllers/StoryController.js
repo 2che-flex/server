@@ -18,9 +18,9 @@ class StoryController {
   }
 
   static async inputStory(req, res, next) {
-    const { teks } = req.body
+    const { textHtml } = req.body
     try {
-      const dataStory = await Story.create({ teks })
+      const dataStory = await Story.create({ textHtml })
 
       res.status(201).json(dataStory)
 
@@ -42,11 +42,11 @@ class StoryController {
   }
 
   static async updateStory(req, res, next) {
-    const { teks } = req.body
+    const { textHtml } = req.body
     const { id } = req.params
     try {
 
-      await Story.update({ teks }, { where: { id } })
+      await Story.update({ textHtml }, { where: { id } })
 
       res.status(200).json({ message : 'Successfully update data Story' })
       

@@ -9,16 +9,6 @@ class CustomNavbarControllers {
         const items = await CustomNavbar.findAll(
           {
             where: { isActive: "true" },
-            include: {
-              as: 'Category',
-              model: Category,
-              include: {
-                model: Warehouse,
-                as: 'Works',
-                order: [['id', 'DESC']],
-                separate: true
-              }
-            }
           })
 
         res.status(200).json(items)
@@ -36,9 +26,9 @@ class CustomNavbarControllers {
   }
 
   static async inputNavbar(req, res, next) {
-    const { name, CategoryId, isActive } = req.body
+    const { name, textHtml, isActive } = req.body
     try {
-      const customNavbar = await CustomNavbar.create({ name, CategoryId, isActive: isActive === 'true' ? true : false })
+      const customNavbar = await CustomNavbar.create({ name, textHtml, isActive: isActive === 'true' ? true : false })
 
       res.status(201).json(customNavbar)
 
@@ -60,11 +50,11 @@ class CustomNavbarControllers {
   }
 
   static async updateNavbar(req, res, next) {
-    const { name, CategoryId, isActive } = req.body
+    const { name, textHtml, isActive } = req.body
     const { id } = req.params
     try {
 
-      await CustomNavbar.update({ name, CategoryId, isActive: isActive === 'true' ? true : false }, { where: { id } })
+      await CustomNavbar.update({ name, textHtml, isActive: isActive === 'true' ? true : false }, { where: { id } })
 
       res.status(200).json({ message : 'Successfully update' })
       

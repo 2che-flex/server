@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class SocialMedia extends Model {
+  class Service extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,37 +13,19 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  SocialMedia.init({
-    name: {
-      type : DataTypes.STRING,
-      validate : {
-        notEmpty :{
-          args : true,
-          msg : 'Name Cannot empty'
-        }
-      }
-    },
-    url: {
-      type : DataTypes.STRING,
-      validate : {
-        notEmpty :{
-          args : true,
-          msg : 'Url Cannot empty'
-        }
-      }
-    },
-    imageData: {
+  Service.init({
+    textHtml: {
       type : DataTypes.TEXT('long'),
       validate : {
         notEmpty :{
           args : true,
-          msg : 'Image Cannot empty'
+          msg : 'Text HTML Cannot empty'
         }
       }
     },
   }, {
     sequelize,
-    modelName: 'SocialMedia',
+    modelName: 'Service',
   });
-  return SocialMedia;
+  return Service;
 };
