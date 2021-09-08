@@ -50,6 +50,15 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    show: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'You must input type show for client'
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'HeroSection',

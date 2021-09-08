@@ -18,9 +18,9 @@ class HeroSectionControllers {
   }
 
   static async inputBanner(req, res, next) {
-    const { title, desc, video_url, imageData } = req.body
+    const { title, desc, video_url, imageData, show } = req.body
     try {
-      const video = await HeroSection.create({ title, desc, video_url, imageData })
+      const video = await HeroSection.create({ title, desc, video_url, imageData, show })
 
       res.status(201).json(video)
 
@@ -42,11 +42,11 @@ class HeroSectionControllers {
   }
 
   static async updateBanner(req, res, next) {
-    const { title, desc, video_url, imageData } = req.body
+    const { title, desc, video_url, imageData, show } = req.body
     const { id } = req.params
     try {
 
-      await HeroSection.update({ title, desc, video_url, imageData }, { where: { id } })
+      await HeroSection.update({ title, desc, video_url, imageData, show }, { where: { id } })
 
       res.status(200).json({ message : 'Successfully update video' })
       
