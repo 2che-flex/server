@@ -7,7 +7,7 @@ class WarehouseControllers {
       const items = await Warehouse.findAll(
         {
           order: [
-            ['id', 'DESC'],
+            ['sortId', 'ASC'],
           ]
         })
       res.status(200).json({ items })
@@ -19,8 +19,15 @@ class WarehouseControllers {
 
   static async inputImage(req, res, next) {
     const { title, description, video_url, CategoryId, imageData } = req.body
+    
+    const sortId = req.body.sortId
+
+    if (!sortId) {
+      sortId = 10
+    }
+
     try {
-      const item = await Warehouse.create({ title, description, video_url, CategoryId, imageData })
+      const item = await Warehouse.create({ title, description, video_url, CategoryId, imageData, sortId: +sortId })
 
       res.status(201).json(item)
 
@@ -43,9 +50,15 @@ class WarehouseControllers {
   static async updateImage(req, res, next) {
     const { title, description, video_url, CategoryId, imageData } = req.body
     const { id } = req.params
+    const sortId = req.body.sortId
+
+    if (!sortId) {
+      sortId = 10
+    }
+    
     try {
 
-      await Warehouse.update({ title, description, video_url, CategoryId, imageData }, { where: { id } })
+      await Warehouse.update({ title, description, video_url, CategoryId, imageData, sortId: +sortId }, { where: { id } })
 
       res.status(200).json({ message: 'Successfully update imageData' })
 

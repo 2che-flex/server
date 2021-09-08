@@ -21,7 +21,16 @@ module.exports = (sequelize, DataTypes) => {
       validate : {
         notEmpty :{
           args : true,
-          msg : 'Name Item Cannot Empty'
+          msg : 'Name Cannot Empty'
+        }
+      }
+    },
+    sortId: {
+      type : DataTypes.INTEGER,
+      validate : {
+        notEmpty :{
+          args : true,
+          msg : 'SortId Cannot Empty'
         }
       }
     },
@@ -30,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
       validate : {
         notEmpty :{
           args : true,
-          msg : 'Description Item Cannot Empty'
+          msg : 'Description Cannot Empty'
         }
       }
     },
